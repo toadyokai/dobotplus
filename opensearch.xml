@@ -4,8 +4,8 @@
   <ShortName>Dobot+ Plugins Toolkit</ShortName>
   <Description>Search Dobot+ Plugins Toolkit</Description>
   <InputEncoding>UTF-8</InputEncoding>
-  <Image width="16" height="16" type="image/x-icon">https://github.com/toadyokai/dobotplus/img/favicon.png</Image>
-  <Url type="text/html" method="get" template="https://github.com/toadyokai/dobotplus/search?q={searchTerms}"/>
-  <Url type="application/opensearchdescription+xml" rel="self" template="https://github.com/toadyokai/dobotplus/opensearch.xml" />
-  <moz:SearchForm>https://github.com/toadyokai/dobotplus/</moz:SearchForm>
+  <Image width="16" height="16" type="image/x-icon">https://github.com/dobotplus/img/favicon.png</Image>
+  <Url type="text/html" method="get" template="https://github.com/dobotplus/search?q={searchTerms}"/>
+  <Url type="application/opensearchdescription+xml" rel="self" template="https://github.com/dobotplus/opensearch.xml" />
+  <moz:SearchForm>https://github.com/dobotplus/</moz:SearchForm>
 </OpenSearchDescription>
