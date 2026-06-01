@@ -1,0 +1,23 @@
+{
+  "home.startBtn.text": {
+    "message": "Tutorials"
+  },
+  "home.function.control.title": {
+    "message": "UI Control"
+  },
+  "home.function.control.text": {
+    "message": "Control the device by user interface"
+  },
+  "home.function.script.title": {
+    "message": "Blocky Program"
+  },
+  "home.function.script.text": {
+    "message": "Support script program by lua script"
+  },
+  "home.function.blocky.title": {
+    "message": "Script Program"
+  },
+  "home.function.blocky.text": {
+    "message": "Custom blocky program"
+  }
+}
