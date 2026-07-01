@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.6.3">
 <title data-rh="true">适配 Modbus 设备 | Dobot+ Plugins Toolkit</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://toadyokai.github.io/dobotplus/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://toadyokai.github.io/dobotplus/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://toadyokai.github.io/dobotplus/examples/Agent/Modbus-RTU"><meta data-rh="true" property="og:locale" content="zh_Hans"><meta data-rh="true" property="og:locale:alternate" content="en_US"><meta data-rh="true" name="docusaurus_locale" content="zh-Hans"><meta data-rh="true" name="docsearch:language" content="zh-Hans"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="适配 Modbus 设备 | Dobot+ Plugins Toolkit"><meta data-rh="true" name="description" content="dobot-plus技能可以适配 Modbus-RTU 协议和 Modbus-TCP协议的设备。该案例展示如何在 AI Agent 中使用 dobot-plus 技能适配 Modbus RTU 通讯协议的末端工具。下文以三款常见设备为例：OnRobot VG10（真空夹爪）、大寰 AG-95（电动夹爪）、大寰 PGE-50（驱控一体电爪）。相比手动编写 Lua、HTTP API 和 UI 页面，Skill 可根据设备协议文档自动生成插件脚手架，开发者只需准备 Requirements.md 并在 IDE 中调用 /dobot-plus 即可。"><meta data-rh="true" property="og:description" content="dobot-plus技能可以适配 Modbus-RTU 协议和 Modbus-TCP协议的设备。该案例展示如何在 AI Agent 中使用 dobot-plus 技能适配 Modbus RTU 通讯协议的末端工具。下文以三款常见设备为例：OnRobot VG10（真空夹爪）、大寰 AG-95（电动夹爪）、大寰 PGE-50（驱控一体电爪）。相比手动编写 Lua、HTTP API 和 UI 页面，Skill 可根据设备协议文档自动生成插件脚手架，开发者只需准备 Requirements.md 并在 IDE 中调用 /dobot-plus 即可。"><link data-rh="true" rel="icon" href="/dobotplus/img/favicon.png"><link data-rh="true" rel="canonical" href="https://toadyokai.github.io/dobotplus/examples/Agent/Modbus-RTU"><link data-rh="true" rel="alternate" href="https://toadyokai.github.io/dobotplus/examples/Agent/Modbus-RTU" hreflang="zh-Hans"><link data-rh="true" rel="alternate" href="https://toadyokai.github.io/dobotplus/en/examples/Agent/Modbus-RTU" hreflang="en-US"><link data-rh="true" rel="alternate" href="https://toadyokai.github.io/dobotplus/examples/Agent/Modbus-RTU" hreflang="x-default"><link data-rh="true" rel="preconnect" href="https://4SOWVHXZB0-dsn.algolia.net" crossorigin="anonymous"><link rel="search" type="application/opensearchdescription+xml" title="Dobot+ Plugins Toolkit" href="/dobotplus/opensearch.xml"><link rel="stylesheet" href="/dobotplus/assets/css/styles.1664590b.css">
-<script src="/dobotplus/assets/js/runtime~main.657d51b5.js" defer="defer"></script>
+<script src="/dobotplus/assets/js/runtime~main.e10b6027.js" defer="defer"></script>
 <script src="/dobotplus/assets/js/main.3e45c5dc.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -115,7 +115,14 @@
 <p><img decoding="async" loading="lazy" alt="VG10" src="/dobotplus/assets/images/PGE50-7204aa90cde30f86e475a4a356c0bc9b.png" width="1920" height="1032" class="img_AdBk"></p>
 <h2 class="anchor anchorWithStickyNavbar_yXhh" id="常见问题">常见问题<a href="#常见问题" class="hash-link" aria-label="常见问题的直接链接" title="常见问题的直接链接">​</a></h2>
 <h3 class="anchor anchorWithStickyNavbar_yXhh" id="如何查看-modbus-通讯报文">如何查看 <code>Modbus</code> 通讯报文<a href="#如何查看-modbus-通讯报文" class="hash-link" aria-label="如何查看-modbus-通讯报文的直接链接" title="如何查看-modbus-通讯报文的直接链接">​</a></h3>
-<p>使用网络调试工具创建 TCP 客户端，与 192.168.5.1:60000 (IP需要根据机械臂实际地址确定，默认是192.168.5.1)建立连接，报文参数选择 <code>HEX</code> 格式。连接建立后，即可查看插件发往末端设备的报文，以及末端设备响应返回的报文。</p>
+<p>使用网络调试工具创建 TCP 客户端。</p>
+<ol>
+<li>PC 端作为 TCP Client</li>
+<li>保持 PC 与控制器 LAN1 的以太网连接</li>
+<li>TCP 客户端 IP 为 192.168.5.1，端口号:60000，IP 需要根据机械臂实际地址确定，控制柜 LAN1 网口默认 IP 是192.168.5.1</li>
+<li>报文参数选择 <code>HEX</code> 格式。</li>
+</ol>
+<p>连接建立后，即可查看插件发往末端设备的报文，以及末端设备响应返回的报文。</p>
 <p><img decoding="async" loading="lazy" alt="Network" src="/dobotplus/assets/images/network-3aa1af6e5f790d8840956388a299026f.png" width="667" height="579" class="img_AdBk"></p>
 <p>常用的 TCP 调试工具如下：</p>
 <ul>
@@ -138,7 +145,7 @@
 <li><code>output/</code> — 压缩后的 zip 包，文件名格式为 <code>&lt;插件名&gt;-&lt;版本号&gt;.zip</code>，即最终导入文件</li>
 </ul>
 <h3 class="anchor anchorWithStickyNavbar_yXhh" id="skill-提示缺少-requirementsmd">Skill 提示缺少 Requirements.md<a href="#skill-提示缺少-requirementsmd" class="hash-link" aria-label="Skill 提示缺少 Requirements.md的直接链接" title="Skill 提示缺少 Requirements.md的直接链接">​</a></h3>
-<p>请确认 <code>Requirements.md</code> 位于插 件项目<strong>根目录</strong>，且包含完整的协议参数、寄存器地址和功能定义。Skill 不会代为创建该文件。</p>
+<p>请确认 <code>Requirements.md</code> 位于插件项目<strong>根目录</strong>，且包含完整的协议参数、寄存器地址和功能定义。Skill 不会代为创建该文件。</p>
 <h3 class="anchor anchorWithStickyNavbar_yXhh" id="modbus-通信失败">Modbus 通信失败<a href="#modbus-通信失败" class="hash-link" aria-label="Modbus 通信失败的直接链接" title="Modbus 通信失败的直接链接">​</a></h3>
 <ul>
 <li>确认控制器 485 参数与 <code>Requirements.md</code> 一致</li>
